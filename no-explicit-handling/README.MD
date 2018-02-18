@@ -14,6 +14,9 @@ java -jar target/no-explicit-error-handling-0.0.1-SNAPSHOT.jar
 ```
 Automáticamente iniciará un tomcat listo para recibir requests en la dirección http://localhost:8080
 
+## Manejo de errores
+En esta versión de la aplicación no se ha configurado nada para el manejo de errores. Todas las validaciones que se tienen son las que ofrece spring por default y la finalidad de esta versión es demostrar estas capacidades y como la falta de validaciones y manejo de errores afectan la experiencia de usuario con la aplicación, además de notar algunas malas prácticas de no manejar los errores.
+
 ## Ejemplos
 El formato de entrada y salida es en JSON.
 Para todos los requests es requerido agregar el siguiente header:
