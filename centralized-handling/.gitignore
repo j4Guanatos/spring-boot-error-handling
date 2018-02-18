@@ -1,0 +1,8 @@
+# Maven artifacts
+**/target
+
+# Eclipse artifacts, including WTP generated manifests
+
+**/.settings/**
+**/.classpath
+**/.project
