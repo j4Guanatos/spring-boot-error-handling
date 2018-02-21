@@ -13,9 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *************************************************************************
  */
 @SpringBootApplication
-public class SampleStudentApp {
+public class SampleStudentAppCentralizedErrorHandling {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SampleStudentApp.class, args);
+		SpringApplication.run(SampleStudentAppCentralizedErrorHandling.class, args);
 	}
 }
