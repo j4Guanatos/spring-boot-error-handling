@@ -1,5 +1,7 @@
 package org.j4guanatos.spring.boot.model;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -23,12 +25,12 @@ public class Student {
 	private Long id;
 	private String firstName;
 	private String lastName;
-	private String birthdate;
+	private LocalDate birthdate;
 	private String phoneNumber;
 	private String email;
 	private Address address;
 	private List<Long> subjects;
-	private Double grade;
+	private BigDecimal grade;
 
 	@CreatedDate
 	private LocalDateTime created;
@@ -59,11 +61,11 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-	public String getBirthdate() {
+	public LocalDate getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(String birthdate) {
+	public void setBirthdate(LocalDate birthdate) {
 		this.birthdate = birthdate;
 	}
 
@@ -115,11 +117,11 @@ public class Student {
 		this.lastUpdated = lastUpdated;
 	}
 
-	public Double getGrade() {
+	public BigDecimal getGrade() {
 		return grade;
 	}
 
-	public void setGrade(Double grade) {
+	public void setGrade(BigDecimal grade) {
 		this.grade = grade;
 	}
 

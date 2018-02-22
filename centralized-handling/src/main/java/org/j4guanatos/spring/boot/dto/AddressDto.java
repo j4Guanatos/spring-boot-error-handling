@@ -1,5 +1,8 @@
 package org.j4guanatos.spring.boot.dto;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -14,11 +17,28 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddressDto {
 
+	@NotNull
+	@Size(min = 1)
 	private String street;
+
+	@NotNull
+	@Size(min = 1)
 	private String number;
+
+	@NotNull
+	@Size(min = 5)
 	private String cp;
+
+	@NotNull
+	@Size(min = 2)
 	private String city;
+
+	@NotNull
+	@Size(min = 2)
 	private String state;
+
+	@NotNull
+	@Size(min = 2)
 	private String country;
 
 	public String getStreet() {

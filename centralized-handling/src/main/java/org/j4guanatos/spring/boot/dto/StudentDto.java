@@ -1,25 +1,64 @@
 package org.j4guanatos.spring.boot.dto;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.util.Date;
 import java.util.List;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StudentDto {
 
+	@NotNull
+	@Min(1)
+	@Max(Long.MAX_VALUE)
 	private Long id;
+
+	@NotNull
+	@Size(min = 1)
 	private String firstName;
+
+	@NotNull
+	@Size(min = 1)
 	private String lastName;
-	private String birthdate;
+
+	@NotNull
+	@Past
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date birthdate;
+
+	@Pattern(regexp = "^[0-9\\+]{1,}[0-9\\- ]{3,15}$")
 	private String phoneNumber;
+
+	@NotNull
 	private String email;
+
+	@Valid
 	private AddressDto address;
+
+	@NotNull
+	@Size(min = 3, max = 10)
 	private List<Long> subjects;
-	private Double grade;
+
+	@Min(0)
+	@Max(100)
+	private BigDecimal grade;
+
+	private final static MathContext ROUND_DETAILS = new MathContext(2);
 
 	public Long getId() {
 		return id;
@@ -45,11 +84,11 @@ public class StudentDto {
 		this.lastName = lastName;
 	}
 
-	public String getBirthdate() {
+	public Date getBirthdate() {
 		return birthdate;
 	}
 
-	public void setBirthdate(String birthdate) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
 
@@ -85,12 +124,14 @@ public class StudentDto {
 		this.subjects = subjects;
 	}
 
-	public Double getGrade() {
+	public BigDecimal getGrade() {
 		return grade;
 	}
 
-	public void setGrade(Double grade) {
-		this.grade = grade;
+	public void setGrade(BigDecimal grade) {
+		if (grade != null) {
+			this.grade = grade.round(ROUND_DETAILS);
+		}
 	}
 
 	@Override
