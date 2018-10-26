@@ -4,10 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**************************************************************************
- * Mapper.java watchtower project
+ * Mapper.java
  *
- * @author Software Quality Engineering Team NBCUniversal Technology - Digital
- *         Products & Interactive Media
  * @since Jul 8, 2016
  **************************************************************************/
 public interface Mapper<D, M> {
